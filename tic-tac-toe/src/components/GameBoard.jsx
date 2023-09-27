@@ -2,7 +2,7 @@ import React from "react";
 import Block from "./Block";
 export default function GameBoard() {
   return (
-    <>
+    <div className="gameBoard">
       <div className="gameBoard-row">
         <Block />
         <Block />
@@ -18,6 +18,6 @@ export default function GameBoard() {
         <Block />
         <Block />
       </div>
-    </>
+    </div>
   );
 }
