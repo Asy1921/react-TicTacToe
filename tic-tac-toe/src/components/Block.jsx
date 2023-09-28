@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/generalStyles.css";
 
-function Block({ val }) {
-  return <button className="block">{val}</button>;
+function Block({ value, onBlockClick }) {
+  return (
+    <button className="block" onClick={onBlockClick}>
+      {value}
+    </button>
+  );
 }
 
 export default Block;
