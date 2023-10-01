@@ -17,30 +17,33 @@ export default function GameBoard() {
     setNextPlayer(!nextPlayer);
   }
   const winner = calculateWinner(block);
-  let status;
+  let gameStatus;
   if (winner) {
-    status = "Winner: " + winner;
+    gameStatus = "Winner: " + winner;
   } else {
-    status = "Next player: " + (nextPlayer ? "X" : "O");
+    gameStatus = "Next player: " + (nextPlayer ? "X" : "O");
   }
   return (
-    <div className="gameBoard">
-      <div className="gameBoard-row">
-        <Block value={block[0]} onBlockClick={() => handleClick(0)} />
-        <Block value={block[1]} onBlockClick={() => handleClick(1)} />
-        <Block value={block[2]} onBlockClick={() => handleClick(2)} />
+    <>
+      <div className="gameStatus">{gameStatus}</div>
+      <div className="gameBoard">
+        <div className="gameBoard-row">
+          <Block value={block[0]} onBlockClick={() => handleClick(0)} />
+          <Block value={block[1]} onBlockClick={() => handleClick(1)} />
+          <Block value={block[2]} onBlockClick={() => handleClick(2)} />
+        </div>
+        <div className="gameBoard-row">
+          <Block value={block[3]} onBlockClick={() => handleClick(3)} />
+          <Block value={block[4]} onBlockClick={() => handleClick(4)} />
+          <Block value={block[5]} onBlockClick={() => handleClick(5)} />
+        </div>
+        <div className="gameBoard-row">
+          <Block value={block[6]} onBlockClick={() => handleClick(6)} />
+          <Block value={block[7]} onBlockClick={() => handleClick(7)} />
+          <Block value={block[8]} onBlockClick={() => handleClick(8)} />
+        </div>
       </div>
-      <div className="gameBoard-row">
-        <Block value={block[3]} onBlockClick={() => handleClick(3)} />
-        <Block value={block[4]} onBlockClick={() => handleClick(4)} />
-        <Block value={block[5]} onBlockClick={() => handleClick(5)} />
-      </div>
-      <div className="gameBoard-row">
-        <Block value={block[6]} onBlockClick={() => handleClick(6)} />
-        <Block value={block[7]} onBlockClick={() => handleClick(7)} />
-        <Block value={block[8]} onBlockClick={() => handleClick(8)} />
-      </div>
-    </div>
+    </>
   );
 }
 function calculateWinner(squares) {
